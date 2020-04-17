@@ -163,6 +163,8 @@ int main(void)
 		  sprintf(uartTX, "                                                                                                    ");
 		  sprintf(uartTX, "\nSystem failed to start! Check gyro connections!\n");
 		  HAL_UART_Transmit( &huart4, (uint8_t *)uartTX, sizeof(uartTX), 100 );
+
+		  while ( gyro_error ) {	} 		// Endless Loop
 	}
 
 	sprintf(uartTX, "                                                                                                    ");
