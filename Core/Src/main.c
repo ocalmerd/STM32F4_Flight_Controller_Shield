@@ -107,7 +107,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-  HAL_Delay( 1500 );
+  HAL_Delay( 2500 );
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
