@@ -11,14 +11,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //PID gain and limit settings
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-float pid_p_gain_roll = 3;               	//Gain setting for the roll P-controller 		- (1.6)
+float pid_p_gain_roll = 2.4;               	//Gain setting for the roll P-controller 		- (1.6)
 float pid_i_gain_roll = 0.008;              //Gain setting for the roll I-controller 		- (0.007)
-float pid_d_gain_roll = 100;                //Gain setting for the roll D-controller 		- (100)
+float pid_d_gain_roll = 120;                //Gain setting for the roll D-controller 		- (100)
 int pid_max_roll = 400;                   	//Maximum output of the PID-controller (+/-) 	- (400)
 
-float pid_p_gain_pitch = 3;    			//Gain setting for the pitch P-controller		- (1.6)
+float pid_p_gain_pitch = 2.4;    			//Gain setting for the pitch P-controller		- (1.6)
 float pid_i_gain_pitch = 0.008;  			//Gain setting for the pitch I-controller 		- (0.007)
-float pid_d_gain_pitch = 100;  				//Gain setting for the pitch D-controller 		- (100)
+float pid_d_gain_pitch = 120;  				//Gain setting for the pitch D-controller 		- (100)
 int pid_max_pitch = 400;          			//Maximum output of the PID-controller (+/-)    - (400)
 
 float pid_p_gain_yaw = 4.0;                	//Gain setting for the pitch P-controller 		- (4.0)
@@ -96,7 +96,10 @@ void Flight_Control_Loop( void )
 	//For starting the motors: throttle low and yaw left (step 1).
 	if( receiver_input_channel_3 < 1100 && receiver_input_channel_4 < 1100 )
 	{
+		if ( L3GD20H_Connection_Check() )
+		{
 		start = 1;
+		}
 	}
 
 	//When yaw stick is back in the center position start the motors (step 2).

@@ -51,6 +51,8 @@ UART_HandleTypeDef huart4;
 
 void L3GD20H_Init( void );
 
+bool L3GD20H_Connection_Check( void );
+
 void L3GD20H_Read_Gyro_RAW_Outputs( void );
 
 

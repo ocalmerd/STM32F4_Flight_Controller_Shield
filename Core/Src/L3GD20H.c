@@ -52,6 +52,22 @@ void L3GD20H_Init( void )
 	}
 }
 
+bool L3GD20H_Connection_Check( void )
+{
+	uint8_t L3GD20H_WHO_AM_I_Check = 0x00;
+
+	HAL_I2C_Mem_Read(&hi2c1, L3GD20H_ADDRESS_DATAREAD , L3GD20H_REG_WHO_AM_I, 1, &L3GD20H_WHO_AM_I_Check, 1, 100 );
+
+	if ( L3GD20H_WHO_AM_I_Check == L3GD20H_WHO_AM_I )
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 void L3GD20H_Read_Gyro_RAW_Outputs( void )
 {
 	HAL_I2C_Mem_Read(&hi2c1, L3GD20H_ADDRESS_DATAREAD, L3GD20H_REG_OUT_X_L, 1,  &L3GD20H_OUT_X_L, 1, 100);
