@@ -96,10 +96,10 @@ void Flight_Control_Loop( void )
 	//For starting the motors: throttle low and yaw left (step 1).
 	if( receiver_input_channel_3 < 1100 && receiver_input_channel_4 < 1100 )
 	{
-		if ( L3GD20H_Connection_Check() )
-		{
+//		if ( L3GD20H_Connection_Check() )
+//		{
 		start = 1;
-		}
+//		}
 	}
 
 	//When yaw stick is back in the center position start the motors (step 2).
